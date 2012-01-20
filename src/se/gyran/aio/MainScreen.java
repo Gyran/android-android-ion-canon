@@ -35,7 +35,6 @@ public class MainScreen extends Activity {
 			@Override
 			public void onClick(View v) {
 				canon.setTarget(edtHost.getText().toString());
-				
 				canon.fire();
 			}
 		});
