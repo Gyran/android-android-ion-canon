@@ -15,7 +15,8 @@
         android:id="@+id/edtHost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/host_hint" >
+        android:hint="@string/host_hint"
+        android:text="@string/host_def" >
 
         <requestFocus />
     </EditText>

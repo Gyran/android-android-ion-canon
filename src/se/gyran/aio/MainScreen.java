@@ -6,6 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class MainScreen extends Activity {
 	private IonCanon canon;
@@ -22,7 +26,7 @@ public class MainScreen extends Activity {
         setContentView(R.layout.main);
         
         // Canon
-        this.canon = new IonCanon(1);
+        this.canon = new IonCanon(10);
         
         /** Capture elements **/
         btnStart = (Button) findViewById(R.id.btnStart);
@@ -34,8 +38,11 @@ public class MainScreen extends Activity {
         btnStart.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				canon.setTarget(edtHost.getText().toString());
-				canon.fire();
+				try {
+					canon.setTarget(edtHost.getText().toString());
+					canon.fire();
+				} catch (Exception e) {
+				}
 			}
 		});
     }

@@ -2,11 +2,12 @@
 <resources>
 
     <string name="hello">Hello World, MainScreen!</string>
-    <string name="app_name">Android-android-ion-canon</string>
+    <string name="app_name">Android Ion Canon</string>
     <string name="host">Host</string>
     <string name="screen_awake">Keep screen awake</string>
     <string name="start">Start</string>
     <string name="host_hint">Type the host</string>
     <string name="stop">Stop</string>
+    <string name="host_def">http://</string>
 
 </resources>

@@ -1,5 +1,12 @@
 package se.gyran.aio;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import org.apache.http.util.ByteArrayBuffer;
+
 import android.util.Log;
 
 public class Beam implements Runnable {
@@ -14,7 +21,28 @@ public class Beam implements Runnable {
 	
 	public void fire()
 	{
-		Log.v("BEAM", this.target);
+		try {
+			this.fireing = true;
+			
+			while(this.fireing)
+			{
+				URL url = new URL(this.target);
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				
+				InputStream in = new BufferedInputStream(conn.getInputStream());
+				
+				while(in.available() > 0)
+					in.read();
+			}
+			
+		} catch (Exception e) { 
+			Log.v("BEAM", "Fireing failed..");
+			e.printStackTrace();
+			
+		}
+		finally {
+			this.fireing = false;
+		}
 	}
 
 	@Override

@@ -1,23 +1,21 @@
 package se.gyran.aio;
 
+import java.net.InetAddress;
 import java.util.ArrayList;
-
-import android.content.Context;
-import android.widget.Toast;
 
 public class IonCanon {
 	private String target;
-	private Integer numBeams;
+	private int numBeams;
 	
 	private ArrayList<Thread> beams; // threads
 	
-	public IonCanon(Integer numBeams, String target)
+	public IonCanon(int numBeams, String target)
 	{ 
 		this.target = target;
 		this.numBeams = numBeams;
 	}
 	
-	public IonCanon(Integer numBeams)
+	public IonCanon(int numBeams)
 	{
 		this(numBeams, null);
 	}
@@ -52,6 +50,7 @@ public class IonCanon {
 		
 		for(Thread beam : this.beams)
 		{
+			beam.setPriority(Thread.MAX_PRIORITY);
 			beam.start();
 		}
 	}
