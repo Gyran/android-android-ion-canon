@@ -28,6 +28,7 @@ public class Beam implements Runnable {
 			{
 				URL url = new URL(this.target);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				//conn.setRequestProperty("User-agent", );
 				
 				InputStream in = new BufferedInputStream(conn.getInputStream());
 				
